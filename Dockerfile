@@ -6,13 +6,10 @@
 ############################################################
 FROM centos:6
 MAINTAINER Nick Heinemans (nick@hostlogic.nl)
-# Only needed when the dockerhost is running a proxy service
-ENV http_proxy http://172.17.42.1:3128
 ENV JAVA_HOME /usr/StorMan/jre
 RUN yum install -y perl unzip tar net-tools \
 && yum clean all
 RUN echo "root:root" | chpasswd
-#ADD http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v1_07_21229.tgz /tmp/
 RUN curl -s http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v1_07_21229.tgz | tar -zx -C /tmp \
 && /tmp/manager/StorMan-1.07-21229.x86_64.bin --silent root root \
 && mv /tmp/cmdline/arcconf/arcconf /bin/ \
