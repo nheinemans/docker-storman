@@ -7,15 +7,18 @@ With this container, you can manage an Adaptec RAID adapter on the dockerhost. I
 It should be run with --privileged, in order to have access to the hardware and insert the necessary kernel modules.
 
 # Start Adaptec MSM
-sudo docker run -d --privileged --user root --name storman -p 8443:8443 nheinemans/storman
+Listening on port 8443 (user=root, password=root):
+
+	sudo docker run -d --privileged --user root --name storman -p 8443:8443 nheinemans/storman
 
 # Invoke arcconf CLI
 It also contains the arcconf binary, which can be invoked with:
 
-sudo docker run --privileged --user root --entrypoint=/bin/arcconf nheinemans/storman
+    sudo docker run --privileged --user root --entrypoint=/bin/arcconf nheinemans/storman
 
 Or in an already running container:
-sudo docker exec -it nheinemans/storman /bin/arcconf
+
+    sudo docker exec -it nheinemans/storman /bin/arcconf
 
 # Disclaimer
 I'm in no way affiliated to Adaptec and cannot support its products. I just needed an easy method to manage my Adaptec RAID controller.
