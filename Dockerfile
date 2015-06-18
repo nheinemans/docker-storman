@@ -10,8 +10,8 @@ ENV JAVA_HOME /usr/StorMan/jre
 RUN yum install -y perl unzip tar net-tools \
 && yum clean all
 RUN echo "root:root" | chpasswd
-RUN curl -s http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v1_07_21229.tgz | tar -zx -C /tmp \
-&& /tmp/manager/StorMan-1.07-21229.x86_64.bin --silent root root \
+RUN curl -s http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v1_08_21375.tgz | tar -zx -C /tmp \
+&& /tmp/manager/StorMan-1.08-21375.x86_64.bin --silent root root \
 && mv /tmp/cmdline/arcconf/arcconf /bin/ \
 && rm -Rf /tmp/* \
 && yum clean all
