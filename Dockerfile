@@ -17,5 +17,6 @@ RUN yum install -y perl unzip tar sysvinit-tools\
 && /tmp/manager/StorMan-2.00-21811.x86_64.bin --silent root root \
 && mv /tmp/cmdline/arcconf/arcconf /bin/ \
 && rm -Rf /tmp/* \
+&& echo bla \
 && yum clean all
 ENTRYPOINT /etc/init.d/stor_agent start && /etc/init.d/stor_cimserver start && /usr/StorMan/apache-tomcat-7.0.26/bin/catalina.sh run
